@@ -1,3 +1,6 @@
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.cocktailapp.Cocktail
 import com.example.cocktailapp.CocktailData
 import com.example.cocktailapp.R
 
@@ -41,12 +45,26 @@ class CocktailDetailFragment : Fragment() {
 
         val fab = view.findViewById<View>(R.id.send_sms_fab)
         fab.setOnClickListener {
-            val message = cocktail?.ingredients?.joinToString(", ") ?: "Brak składników"
-            Toast.makeText(requireContext(), "SMS: $message", Toast.LENGTH_LONG).show()
+            cocktail?.let { cocktail ->
+                val smsIntent = Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("smsto:") // Otwiera aplikację SMS z pustym odbiorcą
+                    putExtra("sms_body", prepareSmsContent(cocktail))
+                }
+                try {
+                    startActivity(smsIntent)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(requireContext(), "Brak aplikacji do wysyłania SMS", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
+    }
 
-
+    private fun prepareSmsContent(cocktail: Cocktail): String {
+        return buildString {
+            append("Składniki koktajlu ${cocktail.name}:\n")
+            append(cocktail.ingredients.joinToString("\n"))
+        }
     }
 
     companion object {

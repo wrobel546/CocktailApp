@@ -19,5 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed"
-        app:tabGravity="fill"/>
+        app:tabIndicatorFullWidth="true"
+        app:tabPaddingStart="0dp"
+        app:tabMaxWidth="0dp"
+        app:tabTextColor="@color/black"
+        app:tabBackground="@color/szałwia"
+        app:tabIndicatorColor="@color/szałwiamocniejsza"
+        app:tabGravity="fill"
+        />
+
 </LinearLayout>

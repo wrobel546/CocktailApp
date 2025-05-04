@@ -3,18 +3,22 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E57BC3AB">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Witaj w aplikacji Koktajle!"
         android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:gravity="center" />
 
     <TextView
         android:text="Tutaj znajdziesz przepisy na różne rodzaje koktajli."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:gravity="center" />
 </LinearLayout>

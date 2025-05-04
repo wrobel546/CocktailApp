@@ -13,7 +13,7 @@ class ShortDrinksFragment : Fragment(R.layout.fragment_cocktail_list) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        val shortDrinks = CocktailData.cocktails.filter { it.type == "Short" }
+        val shortDrinks = CocktailData.cocktails.filter { it.type == "Lekkie" }
 
         val adapter = CocktailAdapter(shortDrinks) { cocktail ->
             val intent = Intent(requireContext(), CocktailDetailActivity::class.java)

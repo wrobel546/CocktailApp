@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
                 0 -> "Strona Główna"
-                1 -> "Short Drinki"
-                2 -> "Long Drinki"
+                1 -> "Lekkie drinki"
+                2 -> "Mocne drinki"
                 else -> ""
             }
         }.attach()

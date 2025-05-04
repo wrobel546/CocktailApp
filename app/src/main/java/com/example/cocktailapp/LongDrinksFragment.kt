@@ -13,7 +13,7 @@ class LongDrinksFragment : Fragment(R.layout.fragment_cocktail_list) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
-        val longDrinks = CocktailData.cocktails.filter { it.type == "Long" }
+        val longDrinks = CocktailData.cocktails.filter { it.type == "Mocne" }
 
         val adapter = CocktailAdapter(longDrinks) { cocktail ->
             val intent = Intent(requireContext(), CocktailDetailActivity::class.java)
